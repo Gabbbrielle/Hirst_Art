@@ -63,6 +63,7 @@ def make_line(dot_size, spaces, dot_num):
 def make_hirst(rows):
     start = -250
     for lines in range(rows):
+        ze.speed(0)
         ze.goto(-300, start)
         make_line(10, 60, rows)
         start += 60
@@ -81,7 +82,7 @@ while like_it is False:
     if like == "n":
         continue
     if like == 'y':
-        windows = turtle.textinput('Are you on a Windows computer? y or n: ')
+        windows = turtle.textinput('Want it?', 'Are you on a Windows computer? y or n: ')
         if windows == 'y':
             subprocess.Popen(["snippingtool.exe"])
         else:

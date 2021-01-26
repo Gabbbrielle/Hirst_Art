@@ -1,16 +1,13 @@
 import turtle
 from tkinter import messagebox
-from turtle import Turtle, Screen, clear
+from turtle import Turtle, Screen
 import subprocess
 import random
 import colorgram
 turtle.colormode(255)
-LARGE_FONT= ("Verdana", 12)
-NORM_FONT = ("Helvetica", 10)
-SMALL_FONT = ("Helvetica", 8)
-
 
 def get_colors(image, num_of_colors):
+    """Get the colors from a google image of Hirst's painting. Return the RGB colors for the paiting. """
     paint_colors = []
     for color in colorgram.extract(image, num_of_colors):
         r = color.rgb.r
@@ -29,6 +26,7 @@ ze.goto(-300, -250)
 
 
 def next_line(direction, spaces):
+    """Start a new line with spaces wanted by the user. """
     if direction == 'left':
         ze.left(90)
         ze.forward(spaces + 60)
@@ -61,6 +59,7 @@ def make_line(dot_size, spaces, dot_num):
 
 
 def make_hirst(rows):
+    """create the art according to the number of rows chosen using the make_line function"""
     start = -250
     for lines in range(rows):
         ze.speed(0)
@@ -70,7 +69,8 @@ def make_hirst(rows):
 
 
 def disco_hirst(times, rows):
-    """Will make a Hirst painting of requested rows repeatedly for the requested times"""
+    """************While loop must be commented to use***********
+    Will make a Hirst painting of requested rows repeatedly for the requested times."""
     for num in range(times):
         make_hirst(rows)
 
@@ -89,6 +89,6 @@ while like_it is False:
             messagebox.showinfo("Screen Grab", "Use your screenshot app of choice")
         like_it = True
 
-# disco_hirst(3, 9)
+
 screen = Screen()
 screen.exitonclick()
